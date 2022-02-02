@@ -296,6 +296,8 @@ class Ecore2Coq {
 		«ENDFOR»
 		
 		(* Typeclass Instances *)	
+		
+		#[export]
 		Instance «mm»_«Keywords.ElementSum» : Sum «mm_eobject» «mm_eclass» :=
 		{
 			denoteSubType := «Keywords.Elem_denoteSubType_FunName(mm)»;
@@ -303,6 +305,7 @@ class Ecore2Coq {
 			toSumType := «Keywords.Elem_toSumType_FunName(mm)»;
 		}.
 		
+		#[export]
 		Instance «mm»_«Keywords.LinkSum» : Sum «mm_elink» «mm_eref» :=
 		{
 			denoteSubType := «Keywords.Link_denoteSubType_FunName(mm)»;
@@ -310,10 +313,12 @@ class Ecore2Coq {
 			toSumType := «Keywords.Link_toSumType_FunName(mm)»;
 		}.
 		
+		#[export]
 		Instance «mm»_EqDec : EqDec «mm_eobject» := {
 		    eq_b := beq_«mm_eobject»;
 		}.
 
+		#[export]
 		Instance «mm»_«Keywords.MetamodelTypeClassName»_Instance : 
 			«Keywords.MetamodelTypeClassName» :=
 		{
@@ -321,6 +326,7 @@ class Ecore2Coq {
 			ModelLink := «mm_elink»;
 		}.
 		
+		#[export]
 		Instance «mm»_«Keywords.ModelingMetamodelTypeClassName»_Instance : 
 			«Keywords.ModelingMetamodelTypeClassName» «mm»_«Keywords.MetamodelTypeClassName»_Instance :=
 		{ 
